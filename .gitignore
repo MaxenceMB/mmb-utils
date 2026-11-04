@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+
+# Build output
+x64/
+x86/
+Win32/
+[Dd]ebug/
+[Rr]elease/
+
+# Misc build artifacts
+*.obj
+*.pdb
+*.idb
+*.ilk
+*.tlog
+*.log

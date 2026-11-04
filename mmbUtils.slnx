@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="mmbUtils/mmbUtils.vcxproj" Id="38901acf-427b-4bd8-8723-498ee70f9ad7" />
+</Solution>
