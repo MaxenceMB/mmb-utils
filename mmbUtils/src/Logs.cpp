@@ -31,13 +31,13 @@ namespace mmb
 						 Style _tagBg, Style _tagFg, Style _logBg, Style _logFg)
 		{
 			std::string formattedTag = "[" + _tag + "]";
-			size_t whitespaceLength = formattedTag.length();
-
-			if (whitespaceLength > s_tagWidth) s_tagWidth = whitespaceLength;
-			whitespaceLength = std::max(whitespaceLength, s_tagWidth);
+			size_t len = formattedTag.length();
+			size_t width = s_tagWidth;
+			if (len > width) s_tagWidth = len;
+			width = std::max(width, len);
 
 			std::cout << Modifier(_tagBg) << Modifier(_tagFg) << formattedTag << Modifier(RESET);				// TAG
-			std::cout << std::string(whitespaceLength, ' ');													// Padding
+			std::cout << std::string(width - len, ' ');													// Padding
 			std::cout << Modifier(_logBg) << Modifier(_logFg) << " - " << _log << Modifier(RESET) << std::endl;	// Log
 		}
 	}
