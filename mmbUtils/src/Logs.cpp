@@ -23,41 +23,42 @@ namespace mmb
 		return _os;
 	}
 
+	namespace 
+	{
+		size_t s_tagWidth = 0;
+
+		void printStyled(const std::string& _tag, const std::string& _log,
+						 Style _tagBg, Style _tagFg, Style _logBg, Style _logFg)
+		{
+			std::string formattedTag = "[" + _tag + "]";
+			size_t whitespaceLength = formattedTag.length();
+
+			if (whitespaceLength > s_tagWidth) s_tagWidth = whitespaceLength;
+			whitespaceLength = std::max(whitespaceLength, s_tagWidth);
+
+			std::cout << Modifier(_tagBg) << Modifier(_tagFg) << formattedTag << Modifier(RESET);				// TAG
+			std::cout << std::string(whitespaceLength, ' ');													// Padding
+			std::cout << Modifier(_logBg) << Modifier(_logFg) << " - " << _log << Modifier(RESET) << std::endl;	// Log
+		}
+	}
+
 	void print(const std::string& _tag, const std::string& _log)
 	{
-		std::string formattedTag = "[" + _tag + "]";
-		size_t whitespaceLength = getWhitespaceLength(formattedTag);
+		printStyled(_tag, _log, BG_CYAN, FG_BLACK, BG_BLACK, FG_CYAN);
+	}
 
-		std::cout << Modifier(BG_CYAN) << Modifier(FG_BLACK) << formattedTag << Modifier(RESET);	// TAG
-		std::cout << std::string(whitespaceLength, ' ');											// Padding
-		std::cout << Modifier(FG_CYAN) << " - " << _log << Modifier(RESET) << std::endl;			// Log
+	void printSuccess(const std::string& _tag, const std::string& _log)
+	{
+		printStyled(_tag, _log, BG_GREEN, FG_BLACK, BG_BLACK, FG_GREEN);
 	}
 
 	void printWarning(const std::string& _tag, const std::string& _log)
 	{
-		std::string formattedTag = "[" + _tag + "]";
-		size_t whitespaceLength = getWhitespaceLength(formattedTag);
-
-		std::cout << Modifier(BG_YELLOW) << Modifier(FG_BLACK) << formattedTag << Modifier(RESET);	// TAG
-		std::cout << std::string(whitespaceLength, ' ');											// Padding
-		std::cout << Modifier(FG_YELLOW) << " - " << _log << Modifier(RESET) << std::endl;			// Log
+		printStyled(_tag, _log, BG_YELLOW, FG_BLACK, BG_BLACK, FG_YELLOW);
 	}
 
 	void printError(const std::string& _tag, const std::string& _log)
 	{
-		std::string formattedTag = "[" + _tag + "]";
-		size_t whitespaceLength = getWhitespaceLength(formattedTag);
-
-		std::cout << Modifier(BG_RED) << Modifier(FG_WHITE) << formattedTag << Modifier(RESET);		// TAG
-		std::cout << std::string(whitespaceLength, ' ');											// Padding
-		std::cout << Modifier(FG_RED) << " - " << _log << Modifier(RESET) << std::endl;				// Log
-	}
-
-	size_t getWhitespaceLength(const std::string& _tag)
-	{
-		size_t len = _tag.length();
-		size_t whitespaceLength = len < MMB_LOGS_TAB_LENGTH ? MMB_LOGS_TAB_LENGTH - len : 0;
-
-		return whitespaceLength;
+		printStyled(_tag, _log, BG_RED, FG_WHITE, BG_BLACK, FG_RED);
 	}
 }

@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Logs.h" />
+    <ClCompile Include="src\Logs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Logs.cpp" />
+    <ClInclude Include="include\mmb\Logs.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

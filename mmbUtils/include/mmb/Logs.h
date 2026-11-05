@@ -5,8 +5,6 @@
 #include <string>
 #include <algorithm>
 
-#define MMB_LOGS_TAB_LENGTH 15
-
 /// <summary>
 /// A whole helper to write logs easier and make everything look cleaner
 /// </summary>
@@ -93,6 +91,14 @@ namespace mmb
 
 	/// <summary>
 	/// Prints a formatted log into the console.
+	/// <para>Styles it as a Success, all green.</para>
+	/// </summary>
+	/// <param name="_tag">The log's tag.</param>
+	/// <param name="_log">The actual text to log.</param>
+	void printSuccess(const std::string& _tag, const std::string& _log);
+
+	/// <summary>
+	/// Prints a formatted log into the console.
 	/// <para>Styles it as a Warning, all yellow.</para>
 	/// </summary>
 	/// <param name="_tag">The log's tag.</param>
@@ -108,12 +114,11 @@ namespace mmb
 	void printError(const std::string& _tag, const std::string& _log);
 
 	/// <summary>
-	/// Computes the required whitespace length to align all the tags properly.
-	/// <para>This is used by the print() functions.</para>
+	/// Sets the minimum width used for tags (brackets included)
+	/// <para>The witdh will still grow automatically to fit longer logs.</para>
 	/// </summary>
-	/// <param name="_tag">The log's tag.</param>
-	/// <returns>The whitespace length (in characters).</returns>
-	size_t getWhitespaceLength(const std::string& _tag);
+	/// <param name="_tag">The whitespace length (in characters).</param>
+	void setMinTagWidth(size_t _width);
 }
 
 #endif
