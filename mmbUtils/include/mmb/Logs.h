@@ -2,6 +2,7 @@
 #define MMB_UTILS_LOGS__H
 
 #include <iostream>
+#include <format>
 #include <string>
 #include <algorithm>
 
