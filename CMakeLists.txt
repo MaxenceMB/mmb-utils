@@ -17,6 +17,7 @@ add_library(mmbUtils STATIC
     # Bits
     mmbUtils/include/mmb/Bits.h
     mmbUtils/include/mmb/bits/BitsHandler.h
+    mmbUtils/include/mmb/bits/BitsHandler.inl
 
     mmbUtils/src/bits/BitsHandler.cpp
 )
