@@ -34,9 +34,8 @@ namespace mmb
 	/// <typeparam name="T"></typeparam>
 	/// <param name="_value">The value displayed in binary.</param>
 	/// <param name="_newLine">True if there should be a new line after the print, False if not.</param>
-	/// <param name="_blockSize">The number of bits to show side by side before spacing.</param>
 	template<typename T>
-	void printBits(T _value, bool _newLine = true, size_t _blockSize = 8);
+	void printBits(T _value, bool _newLine = true);
 } // namespace mmb
 
 #include "mmb/bits/BitsHandler.inl"
