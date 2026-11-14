@@ -39,4 +39,5 @@ namespace mmb
 	void printBits(T _value, bool _newLine = true, size_t _blockSize = 8);
 } // namespace mmb
 
+#include "mmb/bits/BitsHandler.inl"
 #endif // Include guard MMB_UTILS_BITS_BITS_HANDLER_H
