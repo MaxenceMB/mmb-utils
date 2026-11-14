@@ -6,13 +6,24 @@ project(mmbUtils
     LANGUAGES CXX)
 
 add_library(mmbUtils STATIC
-    mmbUtils/src/Logs.cpp
+    # Logs
     mmbUtils/include/mmb/Logs.h
+    mmbUtils/include/mmb/logs/Modifier.h
+    mmbUtils/include/mmb/logs/Printer.h
+
+    mmbUtils/src/logs/Modifier.cpp
+    mmbUtils/src/logs/Printer.cpp
+
+    # Bits
+    mmbUtils/include/mmb/Bits.h
+    mmbUtils/include/mmb/bits/BitsHandler.h
+
+    mmbUtils/src/bits/BitsHandler.cpp
 )
 add_library(mmb::Utils ALIAS mmbUtils)
 
 target_include_directories(mmbUtils PUBLIC
-    # Users write: #include <mmb/Logs.h>
+    # <mmb/Logs.h>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/mmbUtils/include>
 )
 

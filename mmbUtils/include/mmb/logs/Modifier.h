@@ -1,0 +1,81 @@
+#ifndef MMB_UTILS_LOGS_MODIFIER_H
+#define MMB_UTILS_LOGS_MODIFIER_H
+
+#include <iostream>
+
+namespace mmb
+{
+	/// <summary>
+	/// Style ANSI code for console logs.
+	/// </summary>
+	enum Style
+	{
+		// Main
+		RESET = 0,
+		BOLD = 1,
+		FAINT = 2,
+		ITALIC = 3,
+		UNDERLINE = 4,
+		INVERT = 7,
+		STRIKE = 9,
+
+		// Colours
+		FG_BLACK = 30,
+		FG_RED = 31,
+		FG_GREEN = 32,
+		FG_YELLOW = 33,
+		FG_BLUE = 34,
+		FG_MAGENTA = 35,
+		FG_CYAN = 36,
+		FG_WHITE = 37,
+		FG_DEFAULT = 39,
+
+		BG_BLACK = 40,
+		BG_RED = 41,
+		BG_GREEN = 42,
+		BG_YELLOW = 43,
+		BG_BLUE = 44,
+		BG_MAGENTA = 45,
+		BG_CYAN = 46,
+		BG_WHITE = 47,
+		BG_DEFAULT = 49,
+	};
+
+	/// <summary>
+	/// Modifier are here to change how the logs look in the console.
+	/// <para>A Modifier has to be inserted before the text in a std::cout line.</para>
+	/// </summary>
+	class Modifier
+	{
+	public:
+		/// <summary>
+		/// Default Constructor deleted. A Modifier without any style code is nonsense. 
+		/// </summary>
+		Modifier() = delete;
+
+		/// <summary>
+		/// Main Modifier Constructor.
+		/// </summary>
+		/// <param name="_style">The ANSI style code.</param>
+		Modifier(Style _style);
+
+		/// <summary>
+		/// Main Modifier Constructor.
+		/// </summary>
+		/// <param name="_code">The ANSI style code.</param>
+		Modifier(int _code);
+
+		/// <summary>
+		/// Modifier Copy Constructor.
+		/// </summary>
+		/// <param name="_mod">The other Modifier</param>
+		Modifier(const Modifier& _mod);
+
+		friend std::ostream& operator<<(std::ostream& _os, const Modifier& _mod);
+
+	private:
+		int m_code;
+	};
+}
+
+#endif

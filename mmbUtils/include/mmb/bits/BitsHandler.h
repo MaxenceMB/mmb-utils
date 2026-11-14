@@ -1,0 +1,32 @@
+#ifndef MMB_UTILS_BITS_BITS_HANDLER_H
+#define MMB_UTILS_BITS_BITS_HANDLER_H
+
+#include <cstdint>
+
+namespace mmb
+{
+	/// <summary>
+	/// Returns a 64bit mask covering the first N bits.
+	/// </summary>
+	/// <param name="_nbBits">The number of bits to cover.</param>
+	/// <returns>The 64bit mask.</returns>
+	uint64_t bitMask(size_t _nbBits);
+
+	/// <summary>
+	/// Returns the minimum number of bits required to write a given value.
+	/// </summary>
+	/// <param name="_value">The value.</param>
+	/// <returns>The number of bits required.</returns>
+	size_t bitWidth(uint64_t _value);
+
+	/// <summary>
+	/// Returns the minimum number of bits required to write every number
+	/// inside a specified range.
+	/// </summary>
+	/// <param name="_min">The lowest value of the range. (Inclusive)</param>
+	/// <param name="_max">The largest value of the range. (Exclusive)</param>
+	/// <returns>The number of bits required.</returns>
+	size_t bitRange(uint64_t _min, uint64_t _max);
+}
+
+#endif
