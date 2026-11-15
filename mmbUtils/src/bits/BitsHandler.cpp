@@ -4,7 +4,7 @@ namespace mmb
 {
 	uint64_t bitMask(size_t _nbBits)
 	{
-		if (_nbBits >= sizeof(uint64_t)) return UINT64_MAX;
+		if (_nbBits >= sizeof(uint64_t) * 8) return UINT64_MAX;
 		if (_nbBits <= 0) return (uint64_t)0;
 
 		return ((uint64_t)1 << _nbBits) - 1;
