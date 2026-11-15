@@ -36,6 +36,16 @@ namespace mmb
 	/// <param name="_newLine">True if there should be a new line after the print, False if not.</param>
 	template<typename T>
 	void printBits(T _value, bool _newLine = true);
+
+	template<typename T>
+	T bitSwap(T _value);
+
+	template<typename T>
+	T toLittleEndian(T _value);
+
+	template<typename T>
+	T toBigEndian(T _value);
+
 } // namespace mmb
 
 #include "mmb/bits/BitsHandler.inl"

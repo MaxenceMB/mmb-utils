@@ -76,6 +76,7 @@ namespace mmb
 	private:
 		int m_code;
 	};
-}
 
-#endif
+} // namespace mmb
+
+#endif // Include guard MMB_UTILS_LOGS_MODIFIER_H

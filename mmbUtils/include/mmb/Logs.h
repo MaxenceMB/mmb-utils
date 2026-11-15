@@ -4,4 +4,4 @@
 #include "mmb/logs/Modifier.h"
 #include "mmb/logs/Printer.h"
 
-#endif
+#endif // Include guard MMB_UTILS_LOGS_H

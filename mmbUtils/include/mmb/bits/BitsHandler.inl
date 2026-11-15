@@ -2,6 +2,7 @@
 #define MMB_UTILS_BITS_BITS_HANDLER_INL
 
 #include <iostream>
+#include <bit>
 #include <bitset>
 
 namespace mmb
@@ -18,5 +19,32 @@ namespace mmb
 		}
 		if (_newLine) std::cout << std::endl;
 	}
+
+	template<typename T>
+	T bitSwap(T _value)
+	{
+		// Todo!
+	}
+
+	template<typename T>
+	T toLittleEndian(T _value)
+	{
+		if (std::endian::native == std::endian::big)
+		{
+			return bitSwap<T>(_value);
+		}
+		return _value;
+	}
+
+	template<typename T>
+	T toBigEndian(T _value)
+	{
+		if (std::endian::native == std::endian::little)
+		{
+			return bitSwap<T>(_value);
+		}
+		return _value;
+	}
+
 } // namespace mmb
 #endif // Include guard MMB_UTILS_BITS_BITS_HANDLER_INL

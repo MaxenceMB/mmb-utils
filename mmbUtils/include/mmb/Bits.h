@@ -3,4 +3,4 @@
 
 #include "mmb/bits/BitsHandler.h"
 
-#endif
+#endif // Include guard MMB_UTILS_BITS_H

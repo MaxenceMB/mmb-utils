@@ -35,6 +35,7 @@ namespace mmb
 	/// <param name="_tag">The log's tag.</param>
 	/// <param name="_log">The actual text to log.</param>
 	void printError(const std::string& _tag, const std::string& _log);
-}
 
-#endif
+} // namespace mmb
+
+#endif // Include guard MMB_UTILS_LOGS_PRINTER_H
