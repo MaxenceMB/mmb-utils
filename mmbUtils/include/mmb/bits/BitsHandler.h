@@ -38,7 +38,7 @@ namespace mmb
 	void printBits(T _value, bool _newLine = true);
 
 	template<typename T>
-	T bitSwap(T _value);
+	T byteSwap(T _value);
 
 	template<typename T>
 	T toLittleEndian(T _value);

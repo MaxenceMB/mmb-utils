@@ -21,9 +21,14 @@ namespace mmb
 	}
 
 	template<typename T>
-	T bitSwap(T _value)
+	T byteSwap(T _value)
 	{
-		// Todo!
+		T swapped = _value;
+		for (size_t i = 0; i < sizeof(T) / 2; i++)
+		{
+			swapped |= ((_value & (bitMask(8) << ((sizeof(T) - 1 - i) * 8))) >> ((sizeof(T) - 1 - i) * 8)) | ((_value & (bitMask(8) << ((i * 8)) >> ((sizeof(T) - 1 - i) * 8) - (i * 8)));
+		}
+		return swapped;
 	}
 
 	template<typename T>
