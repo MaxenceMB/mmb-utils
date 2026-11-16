@@ -24,10 +24,22 @@ namespace mmb
 	T byteSwap(T _value)
 	{
 		T swapped = _value;
+		uint64_t lByteMask, rByteMask, swapMask;
+		uint8_t lByteValue, rByteValue;
+
 		for (size_t i = 0; i < sizeof(T) / 2; i++)
 		{
-			swapped |= ((_value & (bitMask(8) << ((sizeof(T) - 1 - i) * 8))) >> ((sizeof(T) - 1 - i) * 8)) | ((_value & (bitMask(8) << ((i * 8)) >> ((sizeof(T) - 1 - i) * 8) - (i * 8)));
+			lByteMask = bitMask(8) << ((sizeof(T) - 1 - i) * 8);
+			rByteMask = bitMask(8) << (i * 8);
+			swapMask = bitMask(sizeof(T) * 8) & (lByteMask | rByteMask);
+
+			lByteValue = (_value & lByteMask) >> ((sizeof(T) - 1 - i) * 8);
+			rByteValue = (_value & rByteMask) >> (i * 8);
+
+			swapped &= ~swapMask;
+			swapped |= ((rByteValue << ((sizeof(T) - 1 - i) * 8)) | (lByteValue << (i * 8)));
 		}
+
 		return swapped;
 	}
 
