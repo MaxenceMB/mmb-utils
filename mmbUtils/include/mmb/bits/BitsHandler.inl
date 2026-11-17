@@ -21,12 +21,12 @@ namespace mmb
 	}
 
 	template<typename T>
-	T byteSwap(T _value)
+	T byteSwap(const T& _value)
 	{
-		T swapped = _value;
-		uint64_t lByteMask, rByteMask, swapMask;
-		uint8_t lByteValue, rByteValue;
+		if (sizeof(T) <= 1) return _value;
 
+		T swapped = _value;
+		uint64_t lByteMask, rByteMask, swapMask, lByteValue, rByteValue;
 		for (size_t i = 0; i < sizeof(T) / 2; i++)
 		{
 			lByteMask = bitMask(8) << ((sizeof(T) - 1 - i) * 8);
@@ -44,7 +44,7 @@ namespace mmb
 	}
 
 	template<typename T>
-	T toLittleEndian(T _value)
+	T toLittleEndian(const T& _value)
 	{
 		if (std::endian::native == std::endian::big)
 		{
@@ -54,7 +54,7 @@ namespace mmb
 	}
 
 	template<typename T>
-	T toBigEndian(T _value)
+	T toBigEndian(const T& _value)
 	{
 		if (std::endian::native == std::endian::little)
 		{

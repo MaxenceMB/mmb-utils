@@ -38,13 +38,13 @@ namespace mmb
 	void printBits(T _value, bool _newLine = true);
 
 	template<typename T>
-	T byteSwap(T _value);
+	T byteSwap(const T& _value);
 
 	template<typename T>
-	T toLittleEndian(T _value);
+	T toLittleEndian(const T& _value);
 
 	template<typename T>
-	T toBigEndian(T _value);
+	T toBigEndian(const T& _value);
 
 } // namespace mmb
 
