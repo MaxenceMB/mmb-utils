@@ -37,14 +37,55 @@ namespace mmb
 	template<typename T>
 	void printBits(T _value, bool _newLine = true);
 
+	/// <summary>
+	/// Swaps individual bytes from first to last.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but in a swapped byte order.</returns>
 	template<typename T>
 	T byteSwap(const T& _value);
 
+	/// <summary>
+	/// Swaps individual bytes to have the least significant byte at the lowest memory address.
+	/// <para>Note that if your architecture is already in LSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the LSB first.</returns>
 	template<typename T>
 	T toLittleEndian(const T& _value);
 
+	/// <summary>
+	/// Swaps individual bytes to have the most significant byte at the lowest memory address.
+	/// <para>Note that if your architecture is already in MSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
 	template<typename T>
 	T toBigEndian(const T& _value);
+
+	/// <summary>
+	/// Swaps individual bytes to match the Network byte order (MSB).
+	/// <para>Note that if your architecture is already in MSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
+	template<typename T>
+	T hostToNet(const T& _value);
+
+	/// <summary>
+	/// Swaps individual bytes to match your machine's internal byte order.
+	/// <para>Note that if your architecture is already in MSB first this won't do anything as
+	/// the Network byte order is also MSB first.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
+	template<typename T>
+	T netToHost(const T& _value);
 
 } // namespace mmb
 
