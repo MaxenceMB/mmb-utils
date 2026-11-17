@@ -48,7 +48,7 @@ namespace mmb
 	{
 		if (std::endian::native == std::endian::big)
 		{
-			return bitSwap<T>(_value);
+			return byteSwap<T>(_value);
 		}
 		return _value;
 	}
@@ -58,7 +58,7 @@ namespace mmb
 	{
 		if (std::endian::native == std::endian::little)
 		{
-			return bitSwap<T>(_value);
+			return byteSwap<T>(_value);
 		}
 		return _value;
 	}
@@ -68,7 +68,7 @@ namespace mmb
 	{
 		if (std::endian::native == std::endian::little)
 		{
-			return bitSwap<T>(_value);
+			return byteSwap<T>(_value);
 		}
 		return _value;
 	}
@@ -78,10 +78,11 @@ namespace mmb
 	{
 		if (std::endian::native == std::endian::little)
 		{
-			return bitSwap<T>(_value);
+			return byteSwap<T>(_value);
 		}
 		return _value;
 	}
 
 } // namespace mmb
+
 #endif // Include guard MMB_UTILS_BITS_BITS_HANDLER_INL
