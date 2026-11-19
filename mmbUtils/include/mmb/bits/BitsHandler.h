@@ -26,7 +26,17 @@ namespace mmb
 	/// <param name="_min">The lowest value of the range. (Inclusive)</param>
 	/// <param name="_max">The largest value of the range. (Exclusive)</param>
 	/// <returns>The number of bits required.</returns>
-	size_t bitRange(uint64_t _min, uint64_t _max);
+	size_t bitRange(uint64_t _minInclusive, uint64_t _maxExclusive);
+
+	/// <summary>
+	/// Returns the minimum number of bits required to write every number
+	/// inside a specified range.
+	/// <para>This version allows negative bounds.</para>
+	/// </summary>
+	/// <param name="_min">The lowest value of the range. (Inclusive)</param>
+	/// <param name="_max">The largest value of the range. (Exclusive)</param>
+	/// <returns>The number of bits required.</returns>
+	size_t bitRange(int64_t _minInclusive, int64_t _maxExclusive);
 
 	/// <summary>
 	/// Displays anytype as their individual bits.
@@ -37,14 +47,55 @@ namespace mmb
 	template<typename T>
 	void printBits(T _value, bool _newLine = true);
 
+	/// <summary>
+	/// Swaps individual bytes from first to last.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but in a swapped byte order.</returns>
 	template<typename T>
-	T byteSwap(T _value);
+	T byteSwap(const T& _value);
 
+	/// <summary>
+	/// Swaps individual bytes to have the least significant byte at the lowest memory address.
+	/// <para>Note that if your architecture is already in LSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the LSB first.</returns>
 	template<typename T>
-	T toLittleEndian(T _value);
+	T toLittleEndian(const T& _value);
 
+	/// <summary>
+	/// Swaps individual bytes to have the most significant byte at the lowest memory address.
+	/// <para>Note that if your architecture is already in MSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
 	template<typename T>
-	T toBigEndian(T _value);
+	T toBigEndian(const T& _value);
+
+	/// <summary>
+	/// Swaps individual bytes to match the Network byte order (MSB).
+	/// <para>Note that if your architecture is already in MSB this won't do anything.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
+	template<typename T>
+	T hostToNet(const T& _value);
+
+	/// <summary>
+	/// Swaps individual bytes to match your machine's internal byte order.
+	/// <para>Note that if your architecture is already in MSB first this won't do anything as
+	/// the Network byte order is also MSB first.</para>
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value to swap.</param>
+	/// <returns>The same value, but with the MSB first.</returns>
+	template<typename T>
+	T netToHost(const T& _value);
 
 } // namespace mmb
 
