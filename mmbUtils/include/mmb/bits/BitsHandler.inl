@@ -15,7 +15,8 @@ namespace mmb
 
 		for (int i = sizeof(T) - 1; i >= 0; i--)
 		{
-			std::cout << std::bitset<8>(bytes[i]) << ' ';
+			std::cout << std::bitset<8>(bytes[i]);
+			if (i > 0) std::cout << ' ';
 		}
 		if (_newLine) std::cout << std::endl;
 	}
@@ -64,4 +65,5 @@ namespace mmb
 	}
 
 } // namespace mmb
+
 #endif // Include guard MMB_UTILS_BITS_BITS_HANDLER_INL
