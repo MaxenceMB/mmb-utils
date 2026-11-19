@@ -1,4 +1,4 @@
-#include "mmb/bits/BitsHandler.h"
+#include <mmb/bits/BitsHandler.h>
 
 namespace mmb
 {
@@ -26,5 +26,13 @@ namespace mmb
 		if (_min > _max) return static_cast<size_t>(0);
 
 		return bitWidth(_max - _min);
+	}
+
+	size_t bitRange(int64_t _min, int64_t _max)
+	{
+		if (_min > _max) return static_cast<size_t>(0);
+		if (_max + std::abs(_min) < _min) return static_cast<size_t>(0);
+
+		return bitWidth(static_cast<uint64_t>(std::abs(_max - _min) + 1));
 	}
 }
