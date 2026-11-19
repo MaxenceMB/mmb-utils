@@ -26,7 +26,17 @@ namespace mmb
 	/// <param name="_min">The lowest value of the range. (Inclusive)</param>
 	/// <param name="_max">The largest value of the range. (Exclusive)</param>
 	/// <returns>The number of bits required.</returns>
-	size_t bitRange(uint64_t _min, uint64_t _max);
+	size_t bitRange(uint64_t _minInclusive, uint64_t _maxExclusive);
+
+	/// <summary>
+	/// Returns the minimum number of bits required to write every number
+	/// inside a specified range.
+	/// <para>This version allows negative bounds.</para>
+	/// </summary>
+	/// <param name="_min">The lowest value of the range. (Inclusive)</param>
+	/// <param name="_max">The largest value of the range. (Exclusive)</param>
+	/// <returns>The number of bits required.</returns>
+	size_t bitRange(int64_t _minInclusive, int64_t _maxExclusive);
 
 	/// <summary>
 	/// Displays anytype as their individual bits.

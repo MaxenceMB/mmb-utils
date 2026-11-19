@@ -21,18 +21,18 @@ namespace mmb
 		return width;
 	}
 
-	size_t bitRange(uint64_t _min, uint64_t _max)
+	size_t bitRange(uint64_t _minInclusive, uint64_t _maxExclusive)
 	{
-		if (_min > _max) return static_cast<size_t>(0);
+		if (_minInclusive > _maxExclusive) return static_cast<size_t>(0);
 
-		return bitWidth(_max - _min);
+		return bitWidth(_maxExclusive - _minInclusive);
 	}
 
-	size_t bitRange(int64_t _min, int64_t _max)
+	size_t bitRange(int64_t _minInclusive, int64_t _maxExclusive)
 	{
-		if (_min > _max) return static_cast<size_t>(0);
-		if (_max + std::abs(_min) < _min) return static_cast<size_t>(0);
+		if (_minInclusive > _maxExclusive) return static_cast<size_t>(0);
+		if (_maxExclusive + std::abs(_minInclusive) < _minInclusive) return static_cast<size_t>(0);
 
-		return bitWidth(static_cast<uint64_t>(std::abs(_max - _min) + 1));
+		return bitWidth(static_cast<uint64_t>(std::abs(_maxExclusive - _minInclusive)));
 	}
 }
