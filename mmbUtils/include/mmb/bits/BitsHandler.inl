@@ -8,20 +8,6 @@
 namespace mmb
 {
 	template<typename T>
-	void printBits(T _value, bool _newLine)
-	{
-		unsigned char bytes[sizeof(T)];
-		std::memcpy(bytes, &_value, sizeof(T));
-
-		for (int i = sizeof(T) - 1; i >= 0; i--)
-		{
-			std::cout << std::bitset<8>(bytes[i]);
-			if (i > 0) std::cout << ' ';
-		}
-		if (_newLine) std::cout << std::endl;
-	}
-
-	template<typename T>
 	T byteSwap(const T& _value)
 	{
 		if (sizeof(T) <= 1) return _value;

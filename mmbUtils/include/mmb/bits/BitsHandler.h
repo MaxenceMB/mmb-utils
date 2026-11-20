@@ -39,15 +39,6 @@ namespace mmb
 	size_t bitRange(int64_t _minInclusive, int64_t _maxExclusive);
 
 	/// <summary>
-	/// Displays anytype as their individual bits.
-	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="_value">The value displayed in binary.</param>
-	/// <param name="_newLine">True if there should be a new line after the print, False if not.</param>
-	template<typename T>
-	void printBits(T _value, bool _newLine = true);
-
-	/// <summary>
 	/// Swaps individual bytes from first to last.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
