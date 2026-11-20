@@ -1,8 +1,9 @@
 #ifndef MMB_UTILS_LOGS_PRINTER_INL
 #define MMB_UTILS_LOGS_PRINTER_INL
 
-#include <iostream>
+#include <bitset>
 #include <vector>
+#include <iostream>
 
 namespace mmb
 {
