@@ -7,7 +7,7 @@
 namespace mmb
 {
     template<typename T>
-    void printVector(const std::vector<T>& _v, bool _endNewLine = false, bool _newLine = false)
+    void printVector(const std::vector<T>& _v, bool _endNewLine, bool _newLine)
     {
         std::cout << '[';
         for (size_t i = 0; i < _v.size(); i++)
@@ -22,7 +22,7 @@ namespace mmb
     }
 
     template<typename T>
-    void printVectorAsBits(const std::vector<T>& _v, bool _endNewLine = false, bool _newLine = false)
+    void printVectorAsBits(const std::vector<T>& _v, bool _endNewLine, bool _newLine)
     {
         std::cout << '[';
         for (size_t i = 0; i < _v.size(); i++)

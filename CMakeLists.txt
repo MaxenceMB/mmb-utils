@@ -10,6 +10,7 @@ add_library(mmbUtils STATIC
     mmbUtils/include/mmb/Logs.h
     mmbUtils/include/mmb/logs/Modifier.h
     mmbUtils/include/mmb/logs/Printer.h
+    mmbUtils/include/mmb/logs/Printer.inl
 
     mmbUtils/src/logs/Modifier.cpp
     mmbUtils/src/logs/Printer.cpp
