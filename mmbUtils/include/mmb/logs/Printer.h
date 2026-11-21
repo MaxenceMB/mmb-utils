@@ -42,9 +42,28 @@ namespace mmb
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	/// <param name="_value">The value displayed in binary.</param>
-	/// <param name="_newLine">True if there should be a new line after the print, False if not.</param>
+	/// <param name="_endNewLine">True if there should be a new line after the print, False if not.</param>
 	template<typename T>
-	void printBits(T _value, bool _newLine = true);
+	void printBits(T _value, bool _endNewLine = false);
+
+	/// <summary>
+	/// Creates a string from the desired value as its individual bits.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="_value">The value displayed in binary.</param>
+	/// <returns>A formatted string containing the value in binary.</returns>
+	template<typename T>
+	std::string asBits(T _value);
+
+	/// <summary>
+	/// Prints an array into the console.
+	/// </summary>
+	/// <typeparam name="T">Any type stored inside the array.</typeparam>
+	/// <param name="_v">The array we want to print.</param>
+	/// <param name="_endNewLine">True to print a new line after the array.</param>
+	/// <param name="_newLine">True to print a new line after each element.</param>
+	template<typename T>
+	void printArray(T* _arr, size_t _size, bool _endNewLine = false, bool _newLine = false);
 
 	/// <summary>
 	/// Prints a vector into the console.
@@ -55,6 +74,16 @@ namespace mmb
 	/// <param name="_newLine">True to print a new line after each element.</param>
 	template<typename T>
 	void printVector(const std::vector<T>& _v, bool _endNewLine = false, bool _newLine = false);
+
+	/// <summary>
+	/// Prints elements inside an array as their binary values into the console.
+	/// </summary>
+	/// <typeparam name="T">Any type stored inside the array.</typeparam>
+	/// <param name="_v">The array we want to print.</param>
+	/// <param name="_endNewLine">True to print a new line after the array.</param>
+	/// <param name="_newLine">True to print a new line after each element.</param>
+	template<typename T>
+	void printArrayAsBits(T* _arr, size_t _size, bool _endNewLine = false, bool _newLine = false);
 
 	/// <summary>
 	/// Prints elements inside a vector as their binary values into the console.
